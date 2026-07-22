@@ -1,4 +1,4 @@
-// @ts-nocheck
+/ @ts-nocheck
 import { useEffect, useMemo, useRef, useState } from 'react'
 import Lenis from 'lenis'
 import {
@@ -335,7 +335,7 @@ function HeroSequence({ progress, roleIndex }) {
         <motion.div className="hero-word hero-word--left" style={{ x: titleXLeft, opacity: titleOpacity, filter: titleBlur }}>
           <DecryptedText
             text="TANISH"
-            speed={72}
+            speed={180}
             sequential
             revealDirection="start"
             characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
@@ -349,7 +349,7 @@ function HeroSequence({ progress, roleIndex }) {
         <motion.div className="hero-word hero-word--right" style={{ x: titleXRight, opacity: titleOpacity, filter: titleBlur }}>
           <DecryptedText
             text="SINGH BISHT"
-            speed={66}
+            speed={155}
             sequential
             revealDirection="end"
             characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
@@ -375,8 +375,8 @@ function HeroSequence({ progress, roleIndex }) {
         <h1>
           <DecryptedText
             text="Tanish Singh Bisht"
-            speed={82}
-            maxIterations={15}
+            speed={140}
+            maxIterations={22}
             revealDirection="center"
             characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/.-"
             animateOn="hover"
