@@ -35,6 +35,7 @@ import { AsciiArt } from './components/ui/ascii-art'
 import { Magnetic } from './components/motion/Magnetic'
 import { ParallaxLayer, ParallaxProvider } from './components/motion/Parallax'
 import { ViewReveal } from './components/motion/ViewReveal'
+import './premium-glass.css'
 
 const navItems = [
   ['home', 'Entry'],
@@ -84,9 +85,9 @@ function ProjectFrame({ project, index, progress, active }) {
           <LetterCascade
             text={project.title}
             staggerFrom="center"
-            staggerDuration={0.025}
-            stiffness={360}
-            damping={25}
+            staggerDuration={0.055}
+            stiffness={185}
+            damping={23}
           />
         </h2>
         <div className="project-state__description">
@@ -95,11 +96,11 @@ function ProjectFrame({ project, index, progress, active }) {
               text={`${project.description} ${project.contribution}`}
               splitBy="words"
               direction="up"
-              distance={14}
-              stagger={0.018}
+              distance={12}
+              stagger={0.034}
               blur
               className="project-copy-reveal"
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.92, ease: [0.16, 1, 0.3, 1] }}
             />
           )}
         </div>
@@ -303,9 +304,9 @@ function ToolkitSequence({ progress }) {
           commands={terminalCommands}
           outputs={terminalOutputs}
           username="tanish@portfolio"
-          typingSpeed={34}
-          delayBetweenCommands={620}
-          initialDelay={250}
+          typingSpeed={52}
+          delayBetweenCommands={940}
+          initialDelay={480}
           enableSound={false}
           className="max-w-none px-0"
         />
@@ -334,7 +335,7 @@ function HeroSequence({ progress, roleIndex }) {
         <motion.div className="hero-word hero-word--left" style={{ x: titleXLeft, opacity: titleOpacity, filter: titleBlur }}>
           <DecryptedText
             text="TANISH"
-            speed={28}
+            speed={72}
             sequential
             revealDirection="start"
             characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
@@ -348,7 +349,7 @@ function HeroSequence({ progress, roleIndex }) {
         <motion.div className="hero-word hero-word--right" style={{ x: titleXRight, opacity: titleOpacity, filter: titleBlur }}>
           <DecryptedText
             text="SINGH BISHT"
-            speed={24}
+            speed={66}
             sequential
             revealDirection="end"
             characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
@@ -374,8 +375,8 @@ function HeroSequence({ progress, roleIndex }) {
         <h1>
           <DecryptedText
             text="Tanish Singh Bisht"
-            speed={42}
-            maxIterations={12}
+            speed={82}
+            maxIterations={15}
             revealDirection="center"
             characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/.-"
             animateOn="hover"
@@ -392,7 +393,7 @@ function HeroSequence({ progress, roleIndex }) {
               initial={{ y: 15, opacity: 0, filter: 'blur(7px)' }}
               animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
               exit={{ y: -15, opacity: 0, filter: 'blur(7px)' }}
-              transition={{ duration: 0.58, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.84, ease: [0.16, 1, 0.3, 1] }}
             >
               {roleWords[roleIndex]}
             </motion.strong>
@@ -442,7 +443,7 @@ function ProfileSequence({ progress }) {
               color="#d6eef2"
               backgroundColor="transparent"
               animationStyle="fade"
-              animationDuration={1.2}
+              animationDuration={1.75}
               animateOnView
               objectFit="cover"
               className="ascii-portrait__canvas"
@@ -515,11 +516,11 @@ function App() {
   useEffect(() => {
     if (reducedMotion) return undefined
     const lenis = new Lenis({
-      duration: 1.15,
+      duration: 1.4,
       smoothWheel: true,
-      wheelMultiplier: 0.78,
-      touchMultiplier: 1.08,
-      lerp: 0.072
+      wheelMultiplier: 0.7,
+      touchMultiplier: 1,
+      lerp: 0.062
     })
     lenisRef.current = lenis
     let frame = 0
@@ -547,7 +548,7 @@ function App() {
     }
     updateTime()
     const clock = window.setInterval(updateTime, 1000)
-    const role = window.setInterval(() => setRoleIndex((value) => (value + 1) % roleWords.length), 2300)
+    const role = window.setInterval(() => setRoleIndex((value) => (value + 1) % roleWords.length), 3200)
     return () => {
       window.clearInterval(clock)
       window.clearInterval(role)
@@ -574,7 +575,10 @@ function App() {
       target.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth' })
       return
     }
-    lenisRef.current.scrollTo(target, { duration: 1.45, easing: (value) => 1 - Math.pow(1 - value, 4) })
+    lenisRef.current.scrollTo(target, {
+      duration: 1.8,
+      easing: (value) => 1 - Math.pow(1 - value, 5)
+    })
   }
 
   return (
@@ -602,7 +606,14 @@ function App() {
           <button className={activeScene === index ? 'is-active' : ''} key={id} onClick={() => jumpTo(id)}>
             <span>{String(index).padStart(2, '0')}</span>
             <i />
-            <b><LetterCascade text={label} staggerDuration={0.018} stiffness={420} damping={28} /></b>
+            <b>
+              <LetterCascade
+                text={label}
+                staggerDuration={0.042}
+                stiffness={195}
+                damping={24}
+              />
+            </b>
           </button>
         ))}
       </nav>
