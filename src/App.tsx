@@ -35,7 +35,6 @@ import { AsciiArt } from './components/ui/ascii-art'
 import { Magnetic } from './components/motion/Magnetic'
 import { ParallaxLayer, ParallaxProvider } from './components/motion/Parallax'
 import { ViewReveal } from './components/motion/ViewReveal'
-import './premium-glass.css'
 
 const navItems = [
   ['home', 'Entry'],
