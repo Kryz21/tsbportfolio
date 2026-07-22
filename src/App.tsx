@@ -150,12 +150,12 @@ function ProjectSequence({ progress }) {
   const backgroundColor = useTransform(
     progress,
     [0, 0.29, 0.36, 0.62, 0.7, 1],
-    ['#07080c', '#07080c', '#15080e', '#15080e', '#080c13', '#080c13']
+    ['#09090b', '#09090b', '#121014', '#121014', '#0b0c0f', '#0b0c0f']
   )
   const foreground = useTransform(
     progress,
     [0, 0.29, 0.36, 0.62, 0.7, 1],
-    ['#f4f1f2', '#f4f1f2', '#ffe9ed', '#ffe9ed', '#e7f8ff', '#e7f8ff']
+    ['#f3f0ea', '#f3f0ea', '#efe8e5', '#efe8e5', '#eceff1', '#eceff1']
   )
   const veilOpacity = useTransform(progress, [0.3, 0.335, 0.35, 0.65, 0.685, 0.7], [0, 1, 0, 0, 1, 0])
   const indexFloat = useTransform(progress, [0, 1], ['0%', '-66.666%'])
@@ -325,8 +325,8 @@ function HeroSequence({ progress, roleIndex }) {
   const introOpacity = useTransform(progress, [0.46, 0.64, 0.94, 1], [0, 1, 1, 0])
   const introY = useTransform(progress, [0.46, 0.72], ['9vh', '0vh'])
   const fog = useTransform(progress, [0.3, 0.5, 0.68], [0, 0.78, 0])
-  const backdrop = useTransform(progress, [0, 0.55, 0.72, 1], ['#07080c', '#07080c', '#10070c', '#10070c'])
-  const color = useTransform(progress, [0, 0.55, 0.72, 1], ['#f4f1f2', '#f4f1f2', '#f8edf2', '#f8edf2'])
+  const backdrop = useTransform(progress, [0, 0.55, 0.72, 1], ['#09090b', '#09090b', '#121014', '#121014'])
+  const color = useTransform(progress, [0, 0.55, 0.72, 1], ['#f3f0ea', '#f3f0ea', '#efe8e5', '#efe8e5'])
   const scrollLine = useTransform(progress, [0, 1], [0, 1])
 
   return (
