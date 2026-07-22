@@ -150,12 +150,12 @@ function ProjectSequence({ progress }) {
   const backgroundColor = useTransform(
     progress,
     [0, 0.29, 0.36, 0.62, 0.7, 1],
-    ['#e7e8e9', '#e7e8e9', '#11151a', '#11151a', '#e7e8e9', '#e7e8e9']
+    ['#07080c', '#07080c', '#15080e', '#15080e', '#080c13', '#080c13']
   )
   const foreground = useTransform(
     progress,
     [0, 0.29, 0.36, 0.62, 0.7, 1],
-    ['#111419', '#111419', '#f1f3f4', '#f1f3f4', '#111419', '#111419']
+    ['#f4f1f2', '#f4f1f2', '#ffe9ed', '#ffe9ed', '#e7f8ff', '#e7f8ff']
   )
   const veilOpacity = useTransform(progress, [0.3, 0.335, 0.35, 0.65, 0.685, 0.7], [0, 1, 0, 0, 1, 0])
   const indexFloat = useTransform(progress, [0, 1], ['0%', '-66.666%'])
@@ -325,8 +325,8 @@ function HeroSequence({ progress, roleIndex }) {
   const introOpacity = useTransform(progress, [0.46, 0.64, 0.94, 1], [0, 1, 1, 0])
   const introY = useTransform(progress, [0.46, 0.72], ['9vh', '0vh'])
   const fog = useTransform(progress, [0.3, 0.5, 0.68], [0, 0.78, 0])
-  const backdrop = useTransform(progress, [0, 0.55, 0.72, 1], ['#e9eaeb', '#e9eaeb', '#101419', '#101419'])
-  const color = useTransform(progress, [0, 0.55, 0.72, 1], ['#111419', '#111419', '#edf1f3', '#edf1f3'])
+  const backdrop = useTransform(progress, [0, 0.55, 0.72, 1], ['#07080c', '#07080c', '#10070c', '#10070c'])
+  const color = useTransform(progress, [0, 0.55, 0.72, 1], ['#f4f1f2', '#f4f1f2', '#f8edf2', '#f8edf2'])
   const scrollLine = useTransform(progress, [0, 1], [0, 1])
 
   return (
@@ -619,7 +619,7 @@ function App() {
       </nav>
 
       <main>
-        <ScrollScene id="home" index={0} label="ENTRY / IDENTITY" tone="light" height="310vh" className="hero-scene">
+        <ScrollScene id="home" index={0} label="ENTRY / IDENTITY" tone="dark" height="310vh" className="hero-scene">
           {(progress) => <HeroSequence progress={progress} roleIndex={roleIndex} />}
         </ScrollScene>
 
@@ -627,7 +627,7 @@ function App() {
           {(progress) => <ProfileSequence progress={progress} />}
         </ScrollScene>
 
-        <ScrollScene id="projects" index={2} label="SELECTED PROJECTS" tone="light" height="650vh" className="projects-scene">
+        <ScrollScene id="projects" index={2} label="SELECTED PROJECTS" tone="dark" height="650vh" className="projects-scene">
           {(progress) => <ProjectSequence progress={progress} />}
         </ScrollScene>
 
@@ -635,7 +635,7 @@ function App() {
           {(progress) => <AchievementSequence progress={progress} />}
         </ScrollScene>
 
-        <ScrollScene id="toolkit" index={4} label="TOOLKIT / SIGNAL" tone="light" height="430vh" className="toolkit-scene">
+        <ScrollScene id="toolkit" index={4} label="TOOLKIT / SIGNAL" tone="dark" height="430vh" className="toolkit-scene">
           {(progress) => <ToolkitSequence progress={progress} />}
         </ScrollScene>
 
