@@ -1,4 +1,4 @@
-/ @ts-nocheck
+// @ts-nocheck
 import { useEffect, useMemo, useRef, useState } from 'react'
 import Lenis from 'lenis'
 import {
